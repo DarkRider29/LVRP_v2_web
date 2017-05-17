@@ -1,0 +1,68 @@
+#ez_bbcode_menu {
+	text-align:left;
+	padding:2px;
+}
+
+img.ez_bbcode_ico, img.ez_bbcode_ico_color  {
+	padding:4px;
+	margin:1px;
+	height:16px;
+	width:16px;
+	border-width:1px;
+	border-style:outset;
+	background-color:#ffffff;
+	border-color:#B7B7B7;
+}
+
+.ez_bbcode_ico:hover, .ez_bbcode_ico_color:hover  {
+	background-color:#E0E0E0;
+	border-style:inset;
+	cursor:pointer;
+}
+
+#jquery-colour-picker {
+	background: #fafafa;
+	width: 160px;
+	padding: 10px 5px 10px 10px;
+	border: 1px solid #666;
+	z-index: 99;
+}
+
+#jquery-colour-picker span {
+	margin: 0 0 5px 0;
+	font-size: 18px;
+	color:#000000;
+}
+
+#jquery-colour-picker ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+#jquery-colour-picker ul:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+#jquery-colour-picker ul li {
+	float: left;
+	margin: 0 5px 5px 0;
+}
+
+#jquery-colour-picker ul li a {
+	display: block;
+	width: 13px;
+	height: 13px;
+	text-decoration: none;
+	text-indent: -100000px;
+	outline: 0;
+	border: 1px solid #aaa;
+}
+
+#jquery-colour-picker ul li a:hover {
+	border-color: #000;
+}

@@ -1,0 +1,59 @@
+@font-face 
+{ 
+	font-family: "Intro"; 
+	font-style: normal; 
+	font-weight: normal; 
+	src: url('../font/Action_of_the_Time_New.ttf');
+} 
+
+ul 
+{ 
+	list-style-type: none; 
+}
+
+#Menu2 
+{
+    height: auto;
+    margin: auto;
+}
+#Menu2 ul li 
+{
+	float: none;
+	background: url('../images/protail_menu_container.png') no-repeat;
+	text-align: center;
+	font-family: "Intro"; 
+	font-size:48px;
+    height: 62px;
+    width: 500px;
+}
+#Menu2 ul li a
+{
+	color: black;
+	font-family: "Intro"; 
+	font-size:48px;
+	font-weight: normal;
+}
+#Menu2 ul .SSHeader, #Menu2 ul .SSHeader:hover
+{
+	text-align:center;
+	background: url('../images/protail_menu_header.png') no-repeat;
+	height: 15px;
+	width: 500px;
+}
+#Menu2 ul .SSFooter, #Menu2 ul .SSFooter:hover
+{
+	text-align:center;
+	background: url('../images/protail_menu_footer.png') no-repeat;
+	height: 15;
+	width: 500px;
+}
+#Menu2 ul li:hover
+{
+	background: url('../images/protail_menu_hover.png') no-repeat;
+	color: white;
+	width: 500px;
+}
+#Menu2 ul li:hover a
+{
+	color: white;
+}

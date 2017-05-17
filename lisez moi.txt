@@ -1,0 +1,162 @@
+##
+##
+##        Titre de la Mod :  Reputation System 
+##
+##      Mod version:  2.2.6
+##   Fonctionne sous FluxBB :  1.2.* et 1.4.4
+##     Date de SOrtie :  2009-09-22
+##           Auteur :  hcs (hcs@mail.ru)
+##  Auteur Original :  Sakuza (sakuza@sakuza.com) (Mod version:  1.0.1	)
+##  Traducteur : MeSKo 
+##
+##      Description:  Les utilisateurs peuvent donner des points de réputation à d'autres utilisateurs.
+##		      Les utilisateurs doivent spécifiés la raison du changement de réputation.
+##					Les Administrateurs & Modérateurs peuvent supprimer les .
+##
+##   Fichiers Afféctés :   viewtopic.php, profile.php
+##
+##       BDD Affectée :  Table users drop column if exists:
+##			 reputation_plus
+##			 reputation_minus
+##
+##		      Nouvelle table: reputation	  
+##                    Nouvelle option:
+##                      'o_reputation_timeout'
+##
+##            Notes:  1. Install_mod marche uniquement sous MySQL.
+##
+##         DISCLAIMER:   Veuillez noter que ces mods ne sont pas
+##                       officiellement supportés par PunBB. L'installation
+##                       de ces modifications est à vos risques et périls.
+##                       N'oubliez pas de sauvegarder la base de données et
+##                       les fichiers affectés avant de procéder à
+##                       l'installation de cette modification.
+##
+##
+##  Adaptation pour FluxBB version 1.4.4 : Nero et toute l'équipe de FluxBB.fr
+
+
+
+#---------[ 1. UPLOAD ]------------------------------------------------------
+#
+
+install_mod.php
+reputation.php
+include/reputation/rep_viewtopic.php
+plugins/AP_Reputation.php
+img/warn_plus.gif
+img/warn_minus.gif
+lang/English/reputation.php
+
+#---------[ 2. LANCER ]---------------------------------------------------
+#
+
+install_mod.php
+
+#
+#---------[ 3. SUPPRIMER ]---------------------------------------------------
+#
+
+install_mod.php
+
+#
+#---------[ 4. OUVRIR ]---------------------------------------------------
+#
+
+viewtopic.php
+
+
+#
+#---------[ 5. CHERCHER ]---------------------------------------------------
+#
+
+require PUN_ROOT.'lang/'.$pun_user['language'].'/topic.php';
+
+
+#
+#---------[ 6. APRES AJOUTER ]---------------------------------------------------
+#
+
+require PUN_ROOT.'lang/'.$pun_user['language'].'/reputation.php';
+
+
+#
+#---------[ 7. CHERCHER ]---------------------------------------------------
+#
+
+u.num_posts, u.registered, u.admin_note,
+
+
+#
+#---------[ 8. APRES AJOUTER ]---------------------------------------------------
+#
+
+
+ u.rep_plus AS count_rep_plus, u.rep_minus AS count_rep_minus, u.reputation_enable,
+ 
+ 
+
+#
+#---------[ 13. CHERCHER ]---------------------------------------------------
+#
+	
+<?php if (count($user_info)) echo "\t\t\t\t\t\t".implode("\n\t\t\t\t\t\t", $user_info)."\n"; ?>
+
+
+#
+#---------[ 14. APRES AJOUTER ]-----------------------------------------------------
+#
+
+<?php require(PUN_ROOT.'include/reputation/rep_viewtopic.php'); ?>
+
+
+#
+#---------[ 15. OUVRIR ]---------------------------------------------------
+#
+
+profile.php
+
+
+#
+#---------[ 16. CHERCHER ]---------------------------------------------------
+#
+
+			$form = array(
+				'disp_topics'		=> pun_trim($_POST['form']['disp_topics']),
+				'disp_posts'		=> pun_trim($_POST['form']['disp_posts']),
+				'show_smilies'		=> isset($_POST['form']['show_smilies']) ? '1' : '0',
+				'show_img'			=> isset($_POST['form']['show_img']) ? '1' : '0',
+				'show_img_sig'		=> isset($_POST['form']['show_img_sig']) ? '1' : '0',
+				'show_avatars'		=> isset($_POST['form']['show_avatars']) ? '1' : '0',
+				'show_sig'			=> isset($_POST['form']['show_sig']) ? '1' : '0',
+			);
+
+#
+#---------[ 17. AJOUTER APRES ]-----------------------------------------------------
+#
+
+			$form['reputation_enable'] = pun_linebreaks(trim($_POST['reputation_enable']));
+			if (!isset($form['reputation_enable']) || $form['reputation_enable'] != '1') $form['reputation_enable'] = '0';
+
+
+
+#
+#---------[ 18. CHERCHER (ligne:~1435) ]---------------------------------------------------
+#
+
+
+							<p class="clearb"><?php echo $lang_profile['Paginate info'] ?> <?php echo $lang_profile['Leave blank'] ?></p>
+						</div>
+					</fieldset>
+				</div>
+#
+#---------[ 19. APRES AJOUTER ]-----------------------------------------------------
+#
+
+<?php require(PUN_ROOT.'include/reputation/rep_profile.php'); ?>
+
+
+
+#
+#---------[ 20. SAUVEGARDER ET UPLOADER ]-----------------------------------------------------
+#
